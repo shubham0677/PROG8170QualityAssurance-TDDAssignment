@@ -38,7 +38,32 @@ namespace CircleRadiusTests
         [Test]
         public void AddNegativeValueToRadius()
         {
+            double input = -4.6;
+            circle.AddToRadius(input);
+            Assert.AreEqual(5.0, circle.Radius);
+        }
 
+        [Test]
+        public void SubtractFromRadius()
+        {
+            double input = 2.0;
+            circle.SubtractFromRadius(input);
+            Assert.AreEqual(3.0, circle.Radius);
+        }
+
+        [Test]
+        public void SubtractFromRadiusConstraintCheck()
+        {
+            double input = 6.3;
+            circle.SubtractFromRadius(input);
+            Assert.AreEqual(5.0, circle.Radius);
+        }
+
+        [Test]
+        public void GetCircumference()
+        {
+            double circumference = circle.GetCircumference();
+            Assert.AreEqual(31.4, circumference);
         }
     }
 }
