@@ -52,7 +52,7 @@ namespace CircleRadiusTests
         }
 
         [Test]
-        public void SubtractFromRadiusConstraintCheck()
+        public void SubtractFromRadiusMinimumValueCheck()
         {
             double input = 6.3;
             circle.SubtractFromRadius(input);
@@ -64,6 +64,29 @@ namespace CircleRadiusTests
         {
             double circumference = circle.GetCircumference();
             Assert.AreEqual(31.4, circumference);
+        }
+
+        [Test]
+        [ExpectedException(typeof(RadiusNotProvidedException))]
+        public void GetCircumferenceWithNoRadius()
+        {
+            Circle circle = new Circle();
+            circle.GetCircumference();
+        }
+
+        [Test]
+        public void GetArea()
+        {
+            double area = circle.GetArea();
+            Assert.AreEqual(78.5, area);
+        }
+
+        [Test]
+        [ExpectedException(typeof(RadiusNotProvidedException))]
+        public void GetAreaWithNoRadius()
+        {
+            Circle circle = new Circle();
+            circle.GetArea();
         }
     }
 }
